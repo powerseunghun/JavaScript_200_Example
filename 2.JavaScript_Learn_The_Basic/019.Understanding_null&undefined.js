@@ -5,4 +5,4 @@ console.log(typeof value);
 var value;
 
 console(value);
-console.log(typeof val)
+console.log(typeof val);

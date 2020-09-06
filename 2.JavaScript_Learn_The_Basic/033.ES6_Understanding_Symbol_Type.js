@@ -24,3 +24,4 @@ console.log(JSON.stringify(user));
 const symbolProperties = Object.getOwnPropertySymbols(user);
 console.log(symbolProperties);
 console.log(user[symbolProperties[0]]);
+
