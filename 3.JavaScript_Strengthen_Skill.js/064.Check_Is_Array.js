@@ -5,6 +5,6 @@ function callRoll(students) {
         console.log(`Are you here, ${student}`);
     });
 }
-
 const students = ['Jun', 'Ali', 'Murry', 'Toby'];
+
 callRoll(students);

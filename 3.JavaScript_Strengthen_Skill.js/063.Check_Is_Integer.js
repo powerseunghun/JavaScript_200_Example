@@ -12,6 +12,7 @@ function verifyInteger(n) {
         return 0;
     }
 }
+
 const num1 = verifyInteger(15);
 const num2 = verifyInteger(Infinity);
 const num3 = verifyInteger(0.05);

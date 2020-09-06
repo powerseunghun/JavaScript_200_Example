@@ -32,5 +32,6 @@ console.log(arr instanceof Array);
 console.log(obj instanceof Object);
 console.log(func instanceof Object);
 console.log(empty instanceof Object);
+
 // error occured undefined is not object
 console.log(notCalled instanceof undefined);

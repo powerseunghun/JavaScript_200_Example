@@ -13,4 +13,5 @@ console.log(obj.toString());
 num.__proto__.toString = () => {
     return 'toString Override';
 }
+
 console.log(num.toString());

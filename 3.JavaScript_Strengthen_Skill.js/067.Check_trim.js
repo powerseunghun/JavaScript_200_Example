@@ -10,5 +10,4 @@ const sentences = ['      ABC abc', 'ABC abc      ', `first second
      });
      return filtered;
  }
-
  console.log(filterSentence(sentences));

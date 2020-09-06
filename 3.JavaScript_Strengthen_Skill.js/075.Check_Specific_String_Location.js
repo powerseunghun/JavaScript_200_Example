@@ -15,5 +15,4 @@ const howManyHasE = (arr) => {
     });
     return count;
 }
-
 console.log(`"e" is in ${arr}... ${howManyHasE(arr)}`);
