@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Understanding DOM Property & Tag Attribute</title>
+    </head>
+    <body>
+        <div id="div1" class="div-class">DIV TAG</div>
+        <input id="input1" type="text" value="jay">
+
+        <script>
+            const divEl = document.getElementById('div1');
+            const input1 = document.getElementById('input1');
+
+            console.log(divEl.hasAttribute("id"));
+            console.log(divEl.getAttribute("id"));
+            console.log(divEl.id);
+            
+            divEl.removeAttribute("id");
+            console.log(divEl.id);
+            divEl.setAttribute("id", "new-id");
+            console.log(divEl.id);
+
+            divEl.id = "new-id-2";
+            console.log(divEl.getAttribute("id"));
+
+            console.log(divEl.getAttribute("class"));
+            console.log(divEl.class);
+            console.log(divEl.className);
+
+            divEl.setAttribute("class", "new-div-class");
+            console.log(divEl.className);
+            divEl.className = "new-div-class2";
+            console.log(divEl.getAttribute("class"));
+
+            const valueAttr = input1.getAttribute("value");
+            console.log(valueAttr);
+            console.log(input1.value);
+            input1.value = 'jay2';
+            console.log(input1.getAttribute("value"));
+        </script>
+    </body>
+</html>

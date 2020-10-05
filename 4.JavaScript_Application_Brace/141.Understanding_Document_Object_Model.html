@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM Understanding</title>
+    </head>
+    <body>
+        <div id="div1">hello DOM</div>
+        <ul>
+            <li>list item1</li>
+            <li>list item2</li>
+        </ul>
+        <script>
+            const divEl = document.getElementById('div1');
+            console.log(divEl.innerHTML);
+
+            console.log(divEl.nodeType);
+            console.log(divEl.nodeType === Node.ELEMENT_NODE);
+
+            console.log(divEl.constructor);
+            console.log(divEl instanceof HTMLDivElement);
+            console.log(divEl instanceof HTMLElement);
+            console.log(divEl instanceof Element);
+            console.log(divEl instanceof Node);
+            console.log(Element.prototype);
+            console.log(divEl.tagName);
+
+            const divEl2 = document.querySelector('#div1');
+            console.log(divel2.innerHTML);
+
+            const liEls = document.querySelectorAll('ul li');
+            console.log(liEls.item(0).innerHTML);
+            console.log(liEls.item(1).textContent);
+        </script>
+    </body>
+</html>
