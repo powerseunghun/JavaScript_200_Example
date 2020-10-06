@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Event Propagation Control Example</title>
+        <style>#prevent {border: 1px solid red;}</style>
+    </head>
+    <body>
+        <p>
+            General Post
+            <span id="prevent">Event Prevent Post</span>
+            <br/>
+            General Post2
+        </p>
+        <script>
+            const normalPEl = document.querySelector("p");
+            const eventPreventedEl = document.querySelector("#prevent");
+            normalPEl.addEventListener("contextmenu", function() {
+                console.log("contextmenu Call");
+            });
+            eventPreventedEl.addEventListener("contextmenu", function(event) {
+               console.log("Event Prevent Post Click");
+               event.stopPropagation();
+               event.preventDefault();
+            });
+        </script>
+    </body>
+</html>

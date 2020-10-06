@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>DOM Create, Modify, Remove</title>
+    </head>
+    <body>
+        <h2>Product List</h2>
+        <ul id="product-list">
+        </ul>
+        <script>
+            const products = [
+                {id: 'p-01', name: 'product1'},
+                {id: 'p-02', name: 'product2'},
+                {id: 'p-03', name: 'product3'}
+            ]
+            const productListEl = document.getElementById('product-list');
+            products.map(product => {
+                const newEl = document.createElement('li');
+                newEl.id = product.id;
+                newEl.innerText = product.name;
+                return newEl;
+            }).forEach(productEl => {
+                productListEl.appendChild(productEl);
+            });
+            setTimeout(() => {
+                const secondEl = document.querySelector('ul li:nth-child(2)');
+                secondEl.remove();
+            }, 1000);
+            productListEl.after("<div>Wrong use</div>");
+            productListEl.insertAdjacentHTML('afterend', "<p>Add Paragraph</p>")
+        </script>
+    </body>
+</html>

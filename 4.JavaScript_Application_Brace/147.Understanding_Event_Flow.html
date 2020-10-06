@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Event Flow Example</title>
+        <link rel="stylesheet" href="./event-flow.css">
+    </head>
+    <body>
+        <h1>DOM Event Flow</h1>
+        <div id="element1" class="box">
+            <div id="element2" class="box2">Bubbling</div>
+        </div>
+        <div id="element3" class="box">
+            <div id="element4" class="box2">Capturing</div>
+        </div>
+        <script>
+            element1.addEventListener('click', e => console.log("Element1 Click"));
+            element2.addEventListener('click', e => console.log("Element2 Click"));
+            element3.addEventListener('click', e => console.log("Element3 Click"), true);
+            element4.addEventListener('click', e => console.log("Element4 Click"));
+        </script>
+    </body>
+</html>
+
