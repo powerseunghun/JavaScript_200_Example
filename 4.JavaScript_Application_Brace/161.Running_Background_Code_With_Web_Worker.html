@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTf-8">
+        <title>WebWork Example</title>
+    </head>
+    <body>
+        <div>
+            <input type="number" id="number">
+            <button id="start-btn">Fibonacci Calc Start</button>
+        </div>
+        <div id="result"></div>
+        <script>
+            const result = document.getElementById('result');
+            let isCalculation = false;
+            if (window.Worker) {
+                // worker path...
+                const fibonacchiWorker = new Worker('fibonacci.js');
+                document.getElementById('start-btn')
+                    .addEventListener('click', e => {
+                        if(isCalculation) {
+                            return;
+                        }
+                        const value = document.getElementById('number').value;
+                        fibonacchiWorker.postMessage({num: value});
+                        result.innerHTML('Calculating...');
+                        isCalculation = true;
+                    });
+                    fibonacchiWorker.onmessage = function(e) {
+                        result.innerHTML = e.data;
+                        isCalculation = false;
+                    };
+                    fibonacchiWorker.onerror = function(error) {
+                        console.log('errorOccur', error.message);
+                        result.innerHTML = error.message;
+                        isCalculation = false;
+                    };
+            }
+        </script>
+    </body>
+</html>
