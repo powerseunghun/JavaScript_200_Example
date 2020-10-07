@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML Form Utilization</title>
+    </head>
+    <body>
+        <form name="order">
+            <fieldset name="userInfo">
+                <legend>User Info</legend>
+                name : <input name="name" type="text">
+                phone : <input name="tel" type="tel">
+            </fieldset>
+            <fieldset name="productInfo">
+                <legend>Product Info</legend>
+                ProductName : <input name="productName" type="text">
+                Color : 
+                <select name="color">
+                    <option value="black">black</option>
+                    <option value="yellow">yellow</option>
+                </select>
+            </fieldset>
+            <button id="btn1" type="button">Button Handling</button>
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            const orderForm = document.forms.order,
+                  userField = orderForm.elements.userInfo,
+                  productField = orderForm.elements.productInfo;
+            document.getElementById('btn1')
+            .addEventListener('click', e => {
+                const {name, tel} = userField.elements;
+                console.log(`${name, value} user(${tel.value}) Order`);
+            });
+            orderForm.addEventListener('submit', e => {
+                e.preventDefault();
+                const {productName, color} = productField.elements;
+                console.log(
+                    `${productName.value} Product ${color.value} Order`
+                );
+            });
+
+            orderForm.method = 'GET';
+            orderForm.submit();
+        </script>
+    </body>
+</html>

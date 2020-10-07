@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Message Exchange With Iframe</title>
+    </head>
+    <body>
+        <div>
+            <label>price : </label> <b>20000 won</b>
+            <br/>
+            <button id="checkout-btn">Card Input</button>
+        </div>
+        <iframe id="card-payment" width="500px" height="200px" frameborder="0"></iframe>
+        
+        <script>
+            const iWindow = document.getElementById('card-payment').contentWindow;
+
+            document.getElementById('checkout-btn')
+                .addEventListener('click', e => {
+                    iWindow.location = 'payment.html';
+                });
+
+            window.addEventListener('message', e => {
+                if (e.data.holderName) console.log(e.data);
+            });
+        </script>
+    </body>
+</html>
+
+<!-- payment.html -->
+<!-- <script>
+    function submitForm() {
+        const form = document.getElementById('card-form');
+        const formData = new FormData(form);
+        const formObj = {
+            cardNumber: formData.get("cardNumber"),
+            holderName: formData.get("holderName")
+        }
+        window.parent.postMessage(formObj, '*');
+    }
+</script>
+<form id="card-form" onsubmit="submitForm()">
+    <div>
+        <label>Card Number</label>
+        <input type="text" name="cardNumber">
+    </div>
+    <div>
+        <label>Name</label>
+        <input type="text" name="holderName">
+    </div>
+    <button type="submit">Submit</button>
+</form> -->

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Event Delegation Handling Example</title>
+    </head>
+    <body>
+        <h2>To Do</h2>
+        <ul id="todo-list">
+            <li>
+                Study <button class="remove-button">x</button>
+            </li>
+            <li>
+                Shopping <button class="remove-button">x</button>
+            </li>
+            <li>
+                Homework <button class="remove-button">x</button>
+            </li>
+        </ul>
+        <script>
+            document
+                .querySelector("ul#todo-list")
+                .addEventListener("click", function(event) {
+                    if(event.target.className.indexOf("remove-button") < 0) {
+                        return;
+                    }
+                    const li = event.target.closest("li");
+                    console.log(`${li.innerText} remove`);
+                    li.remove();
+                })
+        </script>
+    </body>
+</html>
