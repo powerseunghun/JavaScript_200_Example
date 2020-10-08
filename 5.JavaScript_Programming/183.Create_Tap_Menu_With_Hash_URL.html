@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Create Tap Menu Example</title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+    </head>
+    <body>
+        <h1>Travel Place Explane</h1>
+        <div class="tabs">
+            <ul>
+                <li><a href="#czech">Czech</a></li>
+                <li><a href="#germany">Germany</a></li>
+                <li><a href="#british">British</a></li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <div id="czech">
+                <h3>Czech</h3>
+                <p>East Europe</p>
+            </div>
+            <div id="germany">
+                <h3>Germany</h3>
+                <p>Famous to Beer</p>
+            </div>
+            <div id="british">
+                <h3>British</h3>
+                <p>NorthWest Europe</p>
+            </div>
+        </div>
+        <script>
+            function createTabs(selector) {
+                const el = document.querySelector(selector);
+                const liEls = el.querySelectorAll('ul li');
+                const tabContentEl = el.querySelector('.tab_content');
+                const firstTabEl = liEls.item(0).firstElementChild
+
+                function activate(target) {
+                    const hash = target.hash;
+                    const anchors = target.closest('ul').querySelectorAll('li a');
+
+                    Array.from(anchors)
+                        .forEach(v => v.className = '');
+                        // children need fix... error occur
+                    Array.from(tabContentEl.children)
+                        .forEach(v => v.style.display = 'none');
+                    tabContentEl.querySelector(hash).style.display = '';
+                    target.className = 'active';
+                }
+
+                const handleHash = () => {
+                    if (location.hash) {
+                        const selector = `a[href="${location.hash}"]`;
+                        activate(document.querySelector(selector));
+                    }
+                    else {
+                        activate(firstTabEl);
+                    }
+                }
+
+                window.addEventListener('hashchange', handleHash);
+
+                handleHash();
+            }
+            createTabs('.tabs');
+        </script>
+    </body>
+</html>
