@@ -1,5 +1,3 @@
-const { getMaxListeners } = require("process");
-
 class Todo {
     constructor(contents, done) {
         this.contents = contents;
@@ -38,4 +36,4 @@ class TodoManager {
     }
 };
 
-
+export {Todo, TodoManager}

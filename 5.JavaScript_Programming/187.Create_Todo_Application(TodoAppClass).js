@@ -1,6 +1,8 @@
-class TodoApp {
+import {TodoManagerWithStorage} from './188.Create_Todo_Application(Use_LocalStorage)';
+
+export class TodoApp {
     constructor(todos) {
-        this.todoManager = new this.todoManager(todos);
+        this.todoManager = new TodoManagerWithStorage(todos);
         this.todoContainerEl = document.querySelector('.todo-container');
         this.titleEl = document.querySelector('.title h2');
         this.plusBtnEl = document.querySelector('.add-todo button');
